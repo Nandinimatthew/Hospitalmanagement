@@ -9,7 +9,7 @@ check_login();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Doctor  | Dashboard</title>
+		<title>Admin  | Dashboard</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,11 +47,11 @@ check_login();
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Doctor | Dashboard</h1>
+									<h1 class="mainTitle">Admin | Dashboard</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>User</span>
+										<span>Admin</span>
 									</li>
 									<li class="active">
 										<span>Dashboard</span>
@@ -67,11 +67,15 @@ check_login();
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
 											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
-											<h2 class="StepTitle">My Profile</h2>
+											<h2 class="StepTitle">Manage Patients</h2>
 											
 											<p class="links cl-effect-1">
-												<a href="edit-profile.php">
-													Update Profile
+												<a href="manage-users.php">
+												<?php $result = mysql_query("SELECT * FROM users ");
+$num_rows = mysql_num_rows($result);
+{
+?>
+											Total Patients :<?php echo htmlentities($num_rows);  } ?>		
 												</a>
 											</p>
 										</div>
@@ -80,18 +84,42 @@ check_login();
 								<div class="col-sm-4">
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
-											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i> </span>
-											<h2 class="StepTitle">My Appointments</h2>
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-users fa-stack-1x fa-inverse"></i> </span>
+											<h2 class="StepTitle">Manage Doctors</h2>
 										
 											<p class="cl-effect-1">
-												<a href="appointment-history.php">
-													View Appointment History
+												<a href="manage-doctors.php">
+												<?php $result1 = mysql_query("SELECT * FROM doctors ");
+$num_rows1 = mysql_num_rows($result1);
+{
+?>
+											Total Doctors :<?php echo htmlentities($num_rows1);  } ?>		
+												</a>
+												
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="panel panel-white no-radius text-center">
+										<div class="panel-body">
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+											<h2 class="StepTitle"> Appointments</h2>
+											
+											<p class="links cl-effect-1">
+												<a href="book-appointment.php">
+													<a href="appointment-history.php">
+												<?php $sql= mysql_query("SELECT * FROM appointment");
+$num_rows2 = mysql_num_rows($sql);
+{
+?>
+											Total Appointments :<?php echo htmlentities($num_rows2);  } ?>	
+												</a>
 												</a>
 											</p>
 										</div>
 									</div>
 								</div>
-								
 							</div>
 						</div>
 			
